@@ -1,3 +1,18 @@
+## Avocago project demo app for:
+
+![logo image](https://secure.meetupstatic.com/photos/event/4/5/5/c/highres_461897756.jpeg)
+
+# Description
+
+This app will be used to illustrate the differences, stong points and weaknesses of Weex and React-Native. The app in itself is not usefull, but aims to be as simple as possible while being diverse enough to accurately illustrate several aspects of RN.
+
+to run:
+```
+yarn // to install
+yarn start // produces an QR code you can open with the expo app
+```
+
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
