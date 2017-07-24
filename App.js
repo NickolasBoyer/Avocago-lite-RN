@@ -24,21 +24,19 @@ import ripeAvo from './assets/ripe.png';
 import unRipeAvo from './assets/hard.png';
 
 // Firebase Config
-var config = {
-    apiKey: "AIzaSyClHKpEfoH825zoDJDfkxRWq-N9ucfuXJ4",
-    authDomain: "avogago.firebaseapp.com",
-    databaseURL: "https://avogago.firebaseio.com",
-    projectId: "avogago",
-    storageBucket: "",
-    messagingSenderId: "933565605064"
-  };
-
-firebase.initializeApp(config);
+firebase.initializeApp({
+  apiKey: "AIzaSyClHKpEfoH825zoDJDfkxRWq-N9ucfuXJ4",
+  authDomain: "avogago.firebaseapp.com",
+  databaseURL: "https://avogago.firebaseio.com",
+  projectId: "avogago",
+  storageBucket: "",
+  messagingSenderId: "933565605064"
+});
 var database = firebase.database();
 
 class MapTest extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); // "this" is uninitialized if super() is not called, call is required in constructors of subclasses
     this.state = {
       weightPromptVisible: true,
       usernamePromptVisible: false,
@@ -78,7 +76,7 @@ class MapTest extends React.Component {
       } else {
         this.setState({usernamePromptVisible: true});
       }
-    }).done();
+    }).done(); // Handles exeptions properly 
   }
 
   _setUserMarker(coordinate) {
@@ -105,9 +103,9 @@ class MapTest extends React.Component {
      return (
       <View style ={styles.container}>
         <Prompt
-          title="What is the aprox. weight of your avogado?"
+          title="What is the aprox. weight of your avocado?"
           placeholder="e.g. 100g, 1 lbs"
-          visible={ this.state.weightPromptVisible }
+          visible={this.state.weightPromptVisible}
           onCancel={ () => this.setState({
             weightPromptVisible: false,
           }) }
@@ -178,7 +176,7 @@ class HomeScreen extends React.Component {
               ready to eat!
             </Text>
           </View>
-          <View style={[styles.triangle]} />
+          <View style={styles.triangle} />
           <View style={[styles.button, styles.buttonHard]}>
             <TouchableNativeFeedback onPress={() => navigate('Map', { avoType: 'notRipe' })} >
               <View style={styles.avoCircle}>
@@ -209,12 +207,9 @@ class MapsScreen extends React.Component {
 
   render() {
       const { params } = this.props.navigation.state;
-
       return (
         <View>
-          <MapTest 
-            avoType={params.avoType}
-          />
+          <MapTest avoType={params.avoType} />
         </View>
       );
     }
